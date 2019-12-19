@@ -2,3 +2,4 @@
 
 1. 프로젝트 디렉토리 구성 및 개발환경 구축
 2. tslint -> deprecated. So use eslint for development
+3. 라우팅은 controller -> router -> app 순서로 import

@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 
-import testRouter from './router/testRouter';
+import testRouter from './routes/testRouter';
 
 const app: Application = express();
 

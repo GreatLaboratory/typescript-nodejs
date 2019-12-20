@@ -1,8 +1,19 @@
 import express, { Router } from 'express';
 import { test } from '../controllers/testController';
 
-const testRouter: Router = express.Router();
+class TestRouter {
+    router: Router;
 
-testRouter.get('/', test);
+    constructor() {
+        this.router = Router();
+        this.routes();
+    }
 
-export default testRouter;
+    routes() {
+        this.router.get('/', test);
+    }
+}
+
+const testRouter = new TestRouter();
+
+export default testRouter.router;

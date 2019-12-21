@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import { Router } from 'express';
 import { test } from '../controllers/testController';
 
 class TestRouter {
@@ -9,7 +9,7 @@ class TestRouter {
         this.routes();
     }
 
-    routes() {
+    routes(): void {
         this.router.get('/', test);
     }
 }

@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import 'dotenv/config';
 import express, { Application } from 'express';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
@@ -7,8 +7,8 @@ import compression from 'compression';
 import cors from 'cors';
 import errorHandler from 'errorhandler';
 
-import testRouter from "./routes/testRouter";
-import userRouter from "./routes/userRouter";
+import testRouter from './routes/testRouter';
+import userRouter from './routes/userRouter';
 
 // Server Class
 class Server {
@@ -21,17 +21,15 @@ class Server {
         this.connectDB();
         this.config();
         this.routes();
-
-        
     }
 
     // DB 연결
     public connectDB(): void {
-        const MONGO_URI = 'mongodb://root:1234@localhost:27017';
+        const MONGO_URI = 'null';
         mongoose.set('useFindAndModify', false);
         const connect = () => {
-            mongoose.connect(MONGO_URI || process.env.MONGO_URI, {
-                dbName : 'nodejs',
+            mongoose.connect(process.env.MONGO_URI || MONGO_URI, {
+                dbName : 'typescript',
                 useNewUrlParser: true,
                 useCreateIndex: true,
                 useUnifiedTopology: true
@@ -39,10 +37,10 @@ class Server {
                 if (error) {
                     console.log('몽고디비 연결 에러', error);
                 } else {
-                    console.log('몽고디비 연결 성공')
+                    console.log('몽고디비 연결 성공');
                 }
             });
-        }
+        };
         connect();
         mongoose.connection.on('error', (error) => {
             console.log('몽고디비 연결 에러', error);

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import axios from 'axios';
 
-const test = async (req: Request, res: Response, next: NextFunction) => {
+const test = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const add = (a: number, b: number): number => a + b;
     try {
         const { data } = await axios.get('https://coveyyy.tk/api/post/payList/1');
@@ -27,6 +27,6 @@ const test = async (req: Request, res: Response, next: NextFunction) => {
         console.error(error);
         next(error);
     }
-}
+};
 
 export { test };

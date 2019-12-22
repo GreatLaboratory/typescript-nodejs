@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-import User from '../models/User'
+import { User } from '../models/User';
 
 const getUsers = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
@@ -10,7 +10,7 @@ const getUsers = async (req: Request, res: Response, next: NextFunction): Promis
         console.error(e);
         next(e);
     }
-}
+};
 
 const getUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
@@ -20,7 +20,7 @@ const getUser = async (req: Request, res: Response, next: NextFunction): Promise
         console.error(e);
         next(e);
     }
-}
+};
 
 const createUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
@@ -31,7 +31,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction): Prom
         console.error(e);
         next(e);
     }
-}
+};
 
 const updateUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
@@ -42,7 +42,7 @@ const updateUser = async (req: Request, res: Response, next: NextFunction): Prom
         console.error(e);
         next(e);
     }
-}
+};
 
 const deleteUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
@@ -53,6 +53,6 @@ const deleteUser = async (req: Request, res: Response, next: NextFunction): Prom
         console.error(e);
         next(e);
     }
-}
+};
 
-export { getUsers, getUser, createUser, updateUser, deleteUser }
+export { getUsers, getUser, createUser, updateUser, deleteUser };

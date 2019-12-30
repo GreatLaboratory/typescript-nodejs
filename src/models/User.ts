@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt-nodejs';
+import bcrypt from 'bcrypt';
 import { Document, Schema, Error, model } from 'mongoose';
 
 export type UserDocument = Document & {
@@ -41,9 +41,7 @@ const userSchema = new Schema({
     }
 }, { timestamps: true });
 
-/**
- * Password hash middleware.
- */
+// 비밀번호 암호화
 userSchema.pre('save', function save(next) {
     const user = this as UserDocument;
     if (!user.isModified('password')) { return next(); }

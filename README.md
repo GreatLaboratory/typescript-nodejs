@@ -8,6 +8,7 @@
 4. mongodb 연결 및 user스키마 정의를 통한 controller, router처리 (12/21)
 5. server.ts 에서 express서버의 설정 및 구동 통일화 (12/21)
 6. eslint 코드 컨벤션 확정 및 적용 (12/22)
+7. passport-local 로그인, 회원가입, 로그아웃 기능 개발 (01/01)
 
 
 ## 개발 목표

@@ -16,7 +16,10 @@ export type UserDocument = Document & {
         picture: string;
     };
 
+    comparePassword: comparePasswordFunction;
 };
+
+type comparePasswordFunction = (candidatePassword: string, cb: (err: Error, isMatch: boolean) => void) => void;
 
 export interface AuthToken {
     accessToken: string;
@@ -54,5 +57,14 @@ userSchema.pre('save', function save(next) {
         });
     });
 });
+
+const comparePassword: comparePasswordFunction = function (this: UserDocument, candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, (err: Error, isMatch: boolean) => {
+        cb(err, isMatch);
+    });
+};
+
+userSchema.methods.comparePassword = comparePassword;
+
 
 export const User = model<UserDocument>('User', userSchema);

@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { getUsers, getUser, createUser, updateUser, deleteUser } from '../controllers/userController';
 
 class UserRouter {
-    router: Router;
+    public router: Router;
 
     constructor() {
         this.router = Router();
